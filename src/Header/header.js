@@ -1,3 +1,4 @@
+import 'bootstrap'
 export default function header() {
     const header = document.createElement('header')
 
@@ -7,6 +8,8 @@ export default function header() {
 
     const submitCityName = document.createElement('button')
     submitCityName.setAttribute('id', 'setCityBtn')
+    submitCityName.classList.add('btn')
+    submitCityName.classList.add('btn-primary')
     submitCityName.textContent = 'Get Weather'
 
     header.appendChild(cityNameInput)

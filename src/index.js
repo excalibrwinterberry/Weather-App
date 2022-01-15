@@ -1,4 +1,5 @@
 import header from "./Header/header"
+import displaySection from "./DisplayWeather/displaySection"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const City = (() =>{
@@ -31,7 +32,10 @@ const handleGetCity =async (e)=>{
     City.setCityName(document.querySelector('#cityName').value)
     const weatherData = await getWeatherData(City.getCityName())
     if(weatherData){
-        console.log(weatherData)
+        const timeStampCurrent = weatherData['current']['dt']
+        const timeStampCheck = weatherData['daily'][0]['dt']
+        const timeCurrent = new Date(timeStampCurrent*1000)
+        const timeCheck = new Date(timeStampCheck*1000)
     }else{
         console.log('error')
     }
@@ -48,11 +52,15 @@ const initialDisplaySetup = (()=>{
         document.querySelector('#setCityBtn').addEventListener('click', handleGetCity)
     }
 
-    return {addHeader}
+    const addWeather = () =>{
+        document.querySelector('#main').appendChild(displaySection())
+    }
+
+    return {addHeader, addWeather}
 
 })()
 
 initialDisplaySetup.addHeader()
-
+initialDisplaySetup.addWeather()
     
 

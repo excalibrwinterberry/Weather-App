@@ -1,9 +1,13 @@
-import 'bootstrap'
 export default function header() {
+    const headerDiv = document.createElement('div')
+    headerDiv.setAttribute('id', 'headerDiv')
+
     const header = document.createElement('header')
 
     const cityNameInput = document.createElement('input')
     cityNameInput.setAttribute('type', 'text')
+    cityNameInput.classList.add('form-control')
+    cityNameInput.placeholder = 'Enter City Name'
     cityNameInput.setAttribute('id', 'cityName')
 
     const submitCityName = document.createElement('button')
@@ -15,5 +19,7 @@ export default function header() {
     header.appendChild(cityNameInput)
     header.appendChild(submitCityName)
 
-    return header
+    headerDiv.appendChild(header)
+
+    return headerDiv
 }

@@ -1,9 +1,7 @@
-function createTagID(tagType, tagId){
-    const temp = document.createElement(tagType)
-    temp.setAttribute('id', tagId)
-
-    return temp
-}
+import createHTMLTag from "./createTag"
+import currentWeatherElement from "./currentWeather"
+import hourlyWeatherElement from "./hourlyWeather"
+import dailyWeatherElement from "./dailyWeather"
 
 export default function displaySection(){
 
@@ -13,30 +11,11 @@ export default function displaySection(){
     const weatherData = document.createElement('div')
     weatherData.setAttribute('id', 'weatherData')
 
-    const currentWeather = document.createElement('div')
-    currentWeather.setAttribute('id', 'currentWeather')
+    const currentWeather = currentWeatherElement()
 
-    const weatherHeadline = document.createElement('div')
-    weatherHeadline.setAttribute('id', 'weatherHeadline')
+    const hourlyWeather = hourlyWeatherElement()
 
-    const cityWeather = document.createElement('div')
-    cityWeather.setAttribute('id', 'cityWeather')
-
-    const currentTemp = document.createElement('div')
-    currentTemp.setAttribute('id', 'currentTemp')
-
-
-    currentWeather.appendChild(weatherHeadline)
-    currentWeather.appendChild(cityWeather)
-    currentWeather.appendChild(currentTemp)
-    currentWeather.appendChild(createTagID('div', 'iconWeather'))
-
-
-    const hourlyWeather = document.createElement('div')
-    hourlyWeather.setAttribute('id', 'hourlyWeather')
-
-    const dailyWeather = document.createElement('div')
-    dailyWeather.setAttribute('id', 'dailyWeather')
+    const dailyWeather = dailyWeatherElement()
 
 
     weatherData.appendChild(currentWeather)

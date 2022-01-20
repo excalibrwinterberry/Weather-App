@@ -1,6 +1,7 @@
 import header from "./Header/header"
 import displaySection from "./DisplayWeather/displaySection"
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+import './style.css'
 
 const City = (() =>{
     let name = 'Patna'

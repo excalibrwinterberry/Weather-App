@@ -2,8 +2,7 @@ export default function header() {
     const headerDiv = document.createElement('div')
     headerDiv.setAttribute('id', 'headerDiv')
 
-    const divInput = document.createElement('div')
-    divInput.classList.add('row')
+    const header = document.createElement('header')
 
     const cityNameInput = document.createElement('input')
     cityNameInput.setAttribute('type', 'text')
@@ -15,10 +14,10 @@ export default function header() {
     submitCityName.classList.add('btn')
     submitCityName.textContent = 'Get Weather'
 
-    divInput.appendChild(cityNameInput)
-    divInput.appendChild(submitCityName)
+    header.appendChild(cityNameInput)
+    header.appendChild(submitCityName)
 
-    headerDiv.appendChild(divInput)
+    headerDiv.appendChild(header)
 
     return headerDiv
 }

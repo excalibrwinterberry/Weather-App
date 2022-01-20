@@ -1,4 +1,4 @@
-import createHTMLTag from "./createTag"
+// import createHTMLTag from "./createTag"
 import currentWeatherElement from "./currentWeather"
 import hourlyWeatherElement from "./hourlyWeather"
 import dailyWeatherElement from "./dailyWeather"

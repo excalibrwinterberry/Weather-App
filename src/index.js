@@ -36,6 +36,13 @@ const getWeatherData = async (location) =>{
 
 }
 
+const setCurrentWeather = (weatherData) =>{
+    console.log('setting data')
+    // document.querySelector('#showCityName').textContent = City.getCityName()
+    // console.log(document.querySelector('#showCityName'))
+    // document.querySelector('#iconImg').src = `http://openweathermap.org/img/wn/${weatherData['current']['weather'][0]['icon']}@2x.png`
+}
+
 const handleGetCity =async (e)=>{
 
     
@@ -44,6 +51,7 @@ const handleGetCity =async (e)=>{
         City.setCityName(document.querySelector('#cityName').value)
         const weatherData = await getWeatherData(cityLocaion)
         if(weatherData){
+            setCurrentWeather(weatherData)
             const timeStampCurrent = weatherData['current']['dt']
             const timeStampCheck = weatherData['daily'][0]['dt']
             const timeCurrent = new Date(timeStampCurrent*1000)

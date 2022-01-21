@@ -45,3 +45,16 @@ button {
   button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
+
+#currentWeather{
+    height: 500px;
+    background: yellow;
+    /* display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 2fr 1fr;
+    row-gap: 5px;
+    column-gap: 5px; */
+}
+
+
+

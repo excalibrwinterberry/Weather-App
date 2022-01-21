@@ -38,6 +38,14 @@ const getWeatherData = async (location) =>{
 
 const setCurrentWeather = (weatherData) =>{
     console.log('setting data')
+    document.querySelector('#weatherLoc').textContent = `${City.getCityName()}`
+    document.querySelector('#weatherTemp').textContent = `${weatherData['current']['temp']}°C`
+    document.querySelector('#weatherMain').textContent = `${weatherData['current']['weather'][0]['main']}`
+    document.querySelector('#weatherIcon').src = `http://openweathermap.org/img/wn/${weatherData['current']['weather'][0]['icon']}@2x.png`
+    document.querySelector('#weatherHigh').textContent = `H:${weatherData['daily'][0]['temp']['max']}`
+    document.querySelector('#weatherLow').textContent = `L:${weatherData['daily'][0]['temp']['min']}`
+
+
     // document.querySelector('#showCityName').textContent = City.getCityName()
     // console.log(document.querySelector('#showCityName'))
     // document.querySelector('#iconImg').src = `http://openweathermap.org/img/wn/${weatherData['current']['weather'][0]['icon']}@2x.png`

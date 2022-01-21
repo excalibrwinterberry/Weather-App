@@ -4,23 +4,20 @@ export default function currentWeatherElement(){
 
     const container = createHTMLTag('div', 'currentWeather', [])
 
-    const locWeather = createHTMLTag('div', 'locWeather', ['item'])
-    const weatherIcon = createHTMLTag('div', 'weatherIcon', ['item'])
-    const weatherTemp = createHTMLTag('div', 'weatherTemp', ['item'])
-    const sunriseSet = createHTMLTag('div', 'sunriseSet', ['item'])
+    container.appendChild(createHTMLTag('p', 'weatherLoc', []))
+    container.appendChild(createHTMLTag('p', 'weatherTemp', []))
+    container.appendChild(createHTMLTag('p', 'weatherMain', []))
 
-    locWeather.appendChild(createHTMLTag('p', 'showCityName', []))
-    weatherIcon.appendChild(createHTMLTag('img', 'iconImg', []))
-    weatherTemp.appendChild(createHTMLTag('p', 'currentTemp', []))
-    weatherTemp.appendChild(createHTMLTag('p', 'tempHL', []))
-    sunriseSet.appendChild(createHTMLTag('p', 'sunrise', []))
-    sunriseSet.appendChild(createHTMLTag('p', 'sunset', []))
-    
-    
-    container.appendChild(locWeather)
-    container.appendChild(weatherTemp)
-    container.appendChild(weatherIcon)
-    container.appendChild(sunriseSet)
+    const weatherIconContainer = createHTMLTag('p', 'weatherIconContainer', [])
+    weatherIconContainer.appendChild(createHTMLTag('img', 'weatherIcon', []))
+
+    container.appendChild(weatherIconContainer)
+    const weatherHighLow = createHTMLTag('p', 'weatherHighLow', [])
+    weatherHighLow.appendChild(createHTMLTag('div', 'weatherHigh', []))
+    weatherHighLow.appendChild(createHTMLTag('div', 'weatherLow', []))
+    container.appendChild(weatherHighLow)
+
+
 
     return container
 }

@@ -17,9 +17,14 @@ export default function displaySection(){
 
     const dailyWeather = dailyWeatherElement()
 
+    const todayWeather = document.createElement('div')
+    todayWeather.setAttribute('id', 'todayWeather')
 
-    weatherData.appendChild(currentWeather)
-    weatherData.appendChild(hourlyWeather)
+    todayWeather.appendChild(currentWeather)
+    todayWeather.appendChild(hourlyWeather)
+
+
+    weatherData.appendChild(todayWeather)
     weatherData.appendChild(dailyWeather)
 
     container.appendChild(weatherData)

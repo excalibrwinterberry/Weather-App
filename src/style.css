@@ -46,15 +46,34 @@ button {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
-#currentWeather{
-    height: 500px;
-    background: yellow;
-    /* display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 2fr 1fr;
+#todayWeather{
+    
+    height: 700px;
+    background: rgb(224, 231, 229);
+    display: grid;
+    grid-template-rows: repeat(auto, 2);
     row-gap: 5px;
-    column-gap: 5px; */
+    /* column-gap: 5px; */
 }
+
+#currentWeather{
+    margin: 20px;
+    text-align: center;
+
+}
+
+#weatherLoc{
+    font-size: 30px;
+}
+#weatherHighLow{
+    display: inline-flex;
+}
+#weatherHigh{
+    margin-right: 15px;
+}
+
+
+
 
 
 

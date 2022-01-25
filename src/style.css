@@ -65,11 +65,26 @@ button {
 #weatherLoc{
     font-size: 30px;
 }
+
+#weatherTemp{
+    font-size: 45px;
+}
 #weatherHighLow{
     display: inline-flex;
 }
 #weatherHigh{
     margin-right: 15px;
+}
+
+#hourlyWeather{
+    text-align: center;
+    height: 200px;
+    background: rgb(170, 170, 207);
+    width: 100%;
+    display: inline-flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
 

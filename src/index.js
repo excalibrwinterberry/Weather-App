@@ -2,6 +2,7 @@ import header from "./Header/header"
 import displaySection from "./DisplayWeather/displaySection"
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
+import hourWeather from "./DisplayWeather/hourWeather"
 
 const City = (() =>{
     let name = 'Patna'
@@ -42,13 +43,9 @@ const setCurrentWeather = (weatherData) =>{
     document.querySelector('#weatherTemp').textContent = `${weatherData['current']['temp']}°C`
     document.querySelector('#weatherMain').textContent = `${weatherData['current']['weather'][0]['main']}`
     document.querySelector('#weatherIcon').src = `http://openweathermap.org/img/wn/${weatherData['current']['weather'][0]['icon']}@2x.png`
-    document.querySelector('#weatherHigh').textContent = `H:${weatherData['daily'][0]['temp']['max']}`
-    document.querySelector('#weatherLow').textContent = `L:${weatherData['daily'][0]['temp']['min']}`
+    document.querySelector('#weatherHigh').textContent = `H:${weatherData['daily'][0]['temp']['max']}°C`
+    document.querySelector('#weatherLow').textContent  = `L:${weatherData['daily'][0]['temp']['min']}°C`
 
-
-    // document.querySelector('#showCityName').textContent = City.getCityName()
-    // console.log(document.querySelector('#showCityName'))
-    // document.querySelector('#iconImg').src = `http://openweathermap.org/img/wn/${weatherData['current']['weather'][0]['icon']}@2x.png`
 }
 
 const handleGetCity =async (e)=>{
@@ -60,11 +57,16 @@ const handleGetCity =async (e)=>{
         const weatherData = await getWeatherData(cityLocaion)
         if(weatherData){
             setCurrentWeather(weatherData)
-            const timeStampCurrent = weatherData['current']['dt']
-            const timeStampCheck = weatherData['daily'][0]['dt']
+            const timeStampCurrent = weatherData['hourly'][0]['dt']
+            // const timeStampCheck = weatherData['daily'][0]['dt']
             const timeCurrent = new Date(timeStampCurrent*1000)
-            const timeCheck = new Date(timeStampCheck*1000)
+            // const timeCheck = new Date(timeStampCheck*1000)
+            console.log(timeCurrent.getHours())
             console.log(weatherData)
+
+            weatherData['hourly'].map((weatherHour)=>{
+                document.querySelector('#hourlyWeather').appendChild(hourWeather(weatherHour))
+            })
         }
     }
     else{
@@ -86,6 +88,7 @@ const initialDisplaySetup = (()=>{
     const addWeather = () =>{
         document.querySelector('#main').appendChild(displaySection())
     }
+
 
     return {addHeader, addWeather}
 

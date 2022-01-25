@@ -38,7 +38,6 @@ const getWeatherData = async (location) =>{
 }
 
 const setCurrentWeather = (weatherData) =>{
-    console.log('setting data')
     document.querySelector('#weatherLoc').textContent = `${City.getCityName()}`
     document.querySelector('#weatherTemp').textContent = `${weatherData['current']['temp']}°C`
     document.querySelector('#weatherMain').textContent = `${weatherData['current']['weather'][0]['main']}`
@@ -46,6 +45,12 @@ const setCurrentWeather = (weatherData) =>{
     document.querySelector('#weatherHigh').textContent = `H:${weatherData['daily'][0]['temp']['max']}°C`
     document.querySelector('#weatherLow').textContent  = `L:${weatherData['daily'][0]['temp']['min']}°C`
 
+}
+
+const setHourlyWeather = (weatherData) =>{
+    weatherData['hourly'].map((weatherHour)=>{
+        document.querySelector('#hourlyWeatherForcast').appendChild(hourWeather(weatherHour))
+    })
 }
 
 const handleGetCity =async (e)=>{
@@ -57,16 +62,9 @@ const handleGetCity =async (e)=>{
         const weatherData = await getWeatherData(cityLocaion)
         if(weatherData){
             setCurrentWeather(weatherData)
-            const timeStampCurrent = weatherData['hourly'][0]['dt']
-            // const timeStampCheck = weatherData['daily'][0]['dt']
-            const timeCurrent = new Date(timeStampCurrent*1000)
-            // const timeCheck = new Date(timeStampCheck*1000)
-            console.log(timeCurrent.getHours())
             console.log(weatherData)
 
-            weatherData['hourly'].map((weatherHour)=>{
-                document.querySelector('#hourlyWeather').appendChild(hourWeather(weatherHour))
-            })
+            setHourlyWeather(weatherData)
         }
     }
     else{
@@ -89,12 +87,21 @@ const initialDisplaySetup = (()=>{
         document.querySelector('#main').appendChild(displaySection())
     }
 
+    const displayOnLoad = async ()=>{
+        City.setCityName('Patna')
+        const cityLocaion = await getCityLocation(City.getCityName())
+        const weatherData = await getWeatherData(cityLocaion)
+        setCurrentWeather(weatherData)
+        setHourlyWeather(weatherData)
+    }
 
-    return {addHeader, addWeather}
+
+    return {addHeader, addWeather, displayOnLoad}
 
 })()
 
 initialDisplaySetup.addHeader()
 initialDisplaySetup.addWeather()
+initialDisplaySetup.displayOnLoad()
     
 

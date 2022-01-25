@@ -8,25 +8,28 @@ export default function displaySection(){
     const container = document.createElement('div')
     container.setAttribute('id', 'weatherContainer')
 
-    const weatherData = document.createElement('div')
-    weatherData.setAttribute('id', 'weatherData')
+    const weatherDisplay = document.createElement('div')
+    weatherDisplay.setAttribute('id', 'weatherDisplay')
 
     const currentWeather = currentWeatherElement()
 
     const hourlyWeather = hourlyWeatherElement()
 
-    const dailyWeather = dailyWeatherElement()
+    // const dailyWeather = dailyWeatherElement()
 
-    const todayWeather = document.createElement('div')
-    todayWeather.setAttribute('id', 'todayWeather')
+    // const todayWeather = document.createElement('div')
+    // todayWeather.setAttribute('id', 'todayWeather')
 
-    todayWeather.appendChild(currentWeather)
-    todayWeather.appendChild(hourlyWeather)
+    // todayWeather.appendChild(currentWeather)
+    // todayWeather.appendChild(hourlyWeather)
 
 
-    weatherData.appendChild(todayWeather)
-    weatherData.appendChild(dailyWeather)
+    // weatherDisplay.appendChild(todayWeather)
+    weatherDisplay.appendChild(currentWeather)
+    weatherDisplay.appendChild(hourlyWeather)
+    // weatherDisplay.appendChild(dailyWeather)
 
-    container.appendChild(weatherData)
+    container.appendChild(weatherDisplay)
+
     return container
 }

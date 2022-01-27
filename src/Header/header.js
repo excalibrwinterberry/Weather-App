@@ -14,8 +14,14 @@ export default function header() {
     submitCityName.classList.add('btn')
     submitCityName.textContent = 'Get Weather'
 
+    const changeDegree = document.createElement('button')
+    changeDegree.setAttribute('id', 'changeDegree')
+    changeDegree.classList.add('btn')
+    changeDegree.textContent = '°C/°F'
+
     header.appendChild(cityNameInput)
     header.appendChild(submitCityName)
+    header.appendChild(changeDegree)
 
     headerDiv.appendChild(header)
 

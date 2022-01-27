@@ -1,9 +1,17 @@
 import createHTMLTag from "./createTag"
-export default function hourWeather(hourObject){
+
+const setTemperatureDegree = (temperature, celcius) =>{
+    if(celcius){
+        return Math.round(temperature) + '°C'
+    }
+
+    return Math.round(temperature*1.8 + 32) + '°F'
+}
+export default function hourWeather(hourObject, celcius){
 
     const weatherHour = createHTMLTag('div', '', ['hourWeather'])
     const hourTemp = createHTMLTag('p', '', ['hourTemp'])
-    hourTemp.textContent = `${hourObject['temp']}°C`
+    hourTemp.textContent =  setTemperatureDegree(hourObject['temp'], celcius)
     
     const hourIcon = createHTMLTag('img', '', ['hourIcon'])
     hourIcon.src = `http://openweathermap.org/img/wn/${hourObject['weather'][0]['icon']}@2x.png`

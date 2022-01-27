@@ -66,6 +66,7 @@ button {
 }
 #weatherHighLow{
     display: inline-flex;
+    font-size: larger;
 }
 #weatherHigh{
     margin-right: 15px;

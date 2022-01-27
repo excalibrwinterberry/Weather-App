@@ -78,21 +78,21 @@ button {
     /* background: rgb(196, 175, 175); */
     height: 260px;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
+    
 }
 
 #hourlyWeatherForcast{
     width: 100%;
     text-align: center;
     display: inline-flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 20px;
 }
 
 #hourTitle{
     background: rgb(196, 175, 175);
-    /* margin: 10px; */
-    /* margin-left: 30px; */
     padding: 15px;
     font-size: larger;
     margin-bottom: 20px;

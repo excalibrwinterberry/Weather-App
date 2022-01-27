@@ -64,16 +64,18 @@ button {
 #weatherTemp{
     font-size: 45px;
 }
-#weatherHighLow{
+#weatherHighLow, #sunRiseSet{
     display: inline-flex;
     font-size: larger;
+    padding: 20px;
 }
-#weatherHigh{
+
+#weatherHigh, #sunrise{
     margin-right: 15px;
 }
 
 #hourlyWeather{
-    background: rgb(196, 175, 175);
+    /* background: rgb(196, 175, 175); */
     height: 260px;
     width: 100%;
     overflow-x: auto;
@@ -88,12 +90,16 @@ button {
 }
 
 #hourTitle{
-    margin: 10px;
-    margin-left: 30px;
+    background: rgb(196, 175, 175);
+    /* margin: 10px; */
+    /* margin-left: 30px; */
+    padding: 15px;
     font-size: larger;
     margin-bottom: 20px;
     color: rgb(54, 109, 91);
 }
+
+
 
 
 

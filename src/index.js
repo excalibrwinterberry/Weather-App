@@ -1,22 +1,7 @@
 import header from "./Header/header"
 import displaySection from "./DisplayWeather/displaySection"
-// import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import hourWeather from "./DisplayWeather/hourWeather"
-
-const City = (() =>{
-    let name = 'Patna'
-
-    const setCityName = (newCity) =>{
-        name = newCity
-    }
-
-    const getCityName = ()=>{
-        return name
-    }
-
-    return {setCityName, getCityName}
-})()
 
 let cityName1 = 'Patna'
 
@@ -61,8 +46,10 @@ const setCurrentWeather = (weatherData) =>{
     document.querySelector('#weatherTemp').textContent = setTemperatureDegree(weatherData['current']['temp'])
     document.querySelector('#weatherMain').textContent = `${weatherData['current']['weather'][0]['main']}` 
     document.querySelector('#weatherIcon').src = `http://openweathermap.org/img/wn/${weatherData['current']['weather'][0]['icon']}@2x.png`
-    document.querySelector('#weatherHigh').textContent = `H:${setTemperatureDegree(weatherData['daily'][0]['temp']['max'])}` 
-    document.querySelector('#weatherLow').textContent  = `L:${setTemperatureDegree(weatherData['daily'][0]['temp']['min'])}`
+    document.querySelector('#weatherHigh').textContent = `High : ${setTemperatureDegree(weatherData['daily'][0]['temp']['max'])}` 
+    document.querySelector('#weatherLow').textContent  = `Low : ${setTemperatureDegree(weatherData['daily'][0]['temp']['min'])}`
+    document.querySelector('#sunrise').textContent = `Sunrise: ${(new Date(weatherData['current']['sunrise'] * 1000)).getHours()}:${(new Date(weatherData['current']['sunrise'] * 1000)).getMinutes()}` 
+    document.querySelector('#sunset').textContent = `Sunset: ${(new Date(weatherData['current']['sunset'] * 1000)).getHours()}:${(new Date(weatherData['current']['sunset'] * 1000)).getMinutes()}`
 
 }
 
@@ -80,6 +67,7 @@ const setVariables = async () =>{
     try{
         cityLoc1 = await getCityLocation(cityName1)
         weatherData1 = await getWeatherData(cityLoc1)
+        console.log(weatherData1)
     }catch{
         console.log('error')
     }
@@ -150,5 +138,3 @@ const initialDisplaySetup = (()=>{
 initialDisplaySetup.addHeader()
 initialDisplaySetup.addWeather()
 initialDisplaySetup.displayOnLoad()
-
-setVariables()

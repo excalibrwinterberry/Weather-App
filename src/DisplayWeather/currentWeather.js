@@ -10,12 +10,19 @@ export default function currentWeatherElement(){
 
     const weatherIconContainer = createHTMLTag('p', 'weatherIconContainer', [])
     weatherIconContainer.appendChild(createHTMLTag('img', 'weatherIcon', []))
-
     container.appendChild(weatherIconContainer)
+
     const weatherHighLow = createHTMLTag('p', 'weatherHighLow', [])
     weatherHighLow.appendChild(createHTMLTag('div', 'weatherHigh', []))
     weatherHighLow.appendChild(createHTMLTag('div', 'weatherLow', []))
     container.appendChild(weatherHighLow)
+
+    container.appendChild(createHTMLTag('br', '', []))
+
+    const sunRiseSet = createHTMLTag('p', 'sunRiseSet', [])
+    sunRiseSet.appendChild(createHTMLTag('div', 'sunrise', []))
+    sunRiseSet.appendChild(createHTMLTag('div', 'sunset', []))
+    container.appendChild(sunRiseSet)
 
 
 

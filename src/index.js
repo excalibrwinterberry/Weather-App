@@ -111,7 +111,11 @@ const handleChangeDegree = (e) =>{
 
 const initialDisplaySetup = (()=>{
 
-
+    const createMainElement = ()=>{
+        const mainElement = document.createElement('div')
+        mainElement.setAttribute('id', 'main') 
+        document.getElementsByTagName('body')[0].appendChild(mainElement)
+    }
     const addHeader = () =>{
         document.querySelector('#main').appendChild(header())
         document.querySelector('#setCityBtn').addEventListener('click', handleGetCity)
@@ -131,10 +135,11 @@ const initialDisplaySetup = (()=>{
     }
 
 
-    return {addHeader, addWeather, displayOnLoad}
+    return {createMainElement ,addHeader, addWeather, displayOnLoad}
 
 })()
 
+initialDisplaySetup.createMainElement()
 initialDisplaySetup.addHeader()
 initialDisplaySetup.addWeather()
 initialDisplaySetup.displayOnLoad()

@@ -132,6 +132,7 @@ const initialDisplaySetup = (()=>{
         await setVariables()
         setCurrentWeather(weatherData1)
         setHourlyWeather(weatherData1)
+        console.log('done')
     }
 
 

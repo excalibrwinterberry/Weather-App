@@ -45,7 +45,7 @@ const setCurrentWeather = (weatherData) =>{
     document.querySelector('#weatherLoc').textContent = `${cityName1}`
     document.querySelector('#weatherTemp').textContent = setTemperatureDegree(weatherData['current']['temp'])
     document.querySelector('#weatherMain').textContent = `${weatherData['current']['weather'][0]['main']}` 
-    document.querySelector('#weatherIcon').src = `http://openweathermap.org/img/wn/${weatherData['current']['weather'][0]['icon']}@2x.png`
+    document.querySelector('#weatherIcon').src = `https://openweathermap.org/img/wn/${weatherData['current']['weather'][0]['icon']}@2x.png`
     document.querySelector('#weatherHigh').textContent = `High : ${setTemperatureDegree(weatherData['daily'][0]['temp']['max'])}` 
     document.querySelector('#weatherLow').textContent  = `Low : ${setTemperatureDegree(weatherData['daily'][0]['temp']['min'])}`
     document.querySelector('#sunrise').textContent = `Sunrise: ${(new Date(weatherData['current']['sunrise'] * 1000)).getHours()}:${(new Date(weatherData['current']['sunrise'] * 1000)).getMinutes()}` 

@@ -32,7 +32,7 @@ const getWeatherData = async (location) =>{
 
 const getCityLocation = async (cityName) =>{
     try{
-        const latLongCity = await (await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=7c270a6210a705967565a0090c676750`, {mode: 'cors'})).json()
+        const latLongCity = await (await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=7c270a6210a705967565a0090c676750`, {mode: 'cors'})).json()
         return [latLongCity[0]['lat'], latLongCity[0]['lon']]
     }catch(error){
         console.log('City entered is not correct')
@@ -132,7 +132,6 @@ const initialDisplaySetup = (()=>{
         await setVariables()
         setCurrentWeather(weatherData1)
         setHourlyWeather(weatherData1)
-        console.log('done')
     }
 
 
